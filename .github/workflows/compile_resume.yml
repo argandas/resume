@@ -17,5 +17,5 @@ jobs:
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tex_path: 'resume.tex'
+        tex_path: 'Hugo_Arganda_Resume.tex'
         push: 'yes'
