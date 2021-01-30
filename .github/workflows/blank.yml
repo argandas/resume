@@ -7,13 +7,15 @@ on:
     branches: [ main ]
 
 jobs:
-  latex:
+  latex-job:
     runs-on: ubuntu-latest
+    name: Compile Latex file
     steps:
-      - name: LaTeX compilation
-      # You may pin to the exact commit or the version.
-      # uses: dante-ev/latex-action@259e5ff953ad4d4616fbd09cc87a526ee5c4499a
-        uses: dante-ev/latex-action@v0.2.0
-        with:
-          # The root LaTeX file to be compiled
-          root_file: resume.tex
+    - uses: actions/checkout@v1
+    - name: Compilation
+      uses: vinay0410/tectonic-action@master
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tex_path: 'resume.tex'
+        push: 'yes'
