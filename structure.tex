@@ -102,15 +102,15 @@ SmallCapsFeatures = {Letters = SmallCaps}
 %	JOB COMMAND
 %----------------------------------------------------------------------------------------
 
-\newcommand{\job}[6]{
+\newcommand{\job}[5]{
     \begin{tabbing}
     
-    \hspace{0.5cm}\color{dark-black}{\textbf{#1} • \textbf{#2}}\\
-    \hspace{0.5cm}{#3} ({#4 - #5}) \\
+    \hspace{0.5cm}\color{dark-black}{\textbf{#1} • {#2}}\\
+    \hspace{0.5cm}{#3 - #4} \\
     \hspace{1cm}\begin{minipage}{\smallertextwidth}
     \vspace{2mm}
     \color{light-black}
-    #6
+    #5
     \end{minipage}
     \end{tabbing}
     \vspace{0em}
@@ -157,6 +157,20 @@ SmallCapsFeatures = {Letters = SmallCaps}
     \hspace{0.5cm}\color{dark-black}{#1} \> \color{light-black}{{#2} - {#3}}
     \end{tabbing}
     \vspace{-6mm}
+}
+
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION ITEM COMMAND
+%----------------------------------------------------------------------------------------
+
+\newcommand{\eduitem}[4]{
+    \begin{tabbing}
+    \hspace{2.5cm} \= \kill
+    \hspace{0.5cm}\color{dark-black}\textbf{#2} \color{light-black}{({#3} - {#4})} \\
+    \hspace{0.5cm}\color{light-black}{#1}\\
+    \end{tabbing}
+    \vspace{-5mm}
 }
 
 %----------------------------------------------------------------------------------------
