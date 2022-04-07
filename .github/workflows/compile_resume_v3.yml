@@ -10,7 +10,7 @@ jobs:
         uses: dante-ev/latex-action@latest
         with:
           root_file: Hugo_Arganda_Resume.tex
-          compiler: pdflatex
+          compiler: xelatex
           args: -interaction=nonstopmode -shell-escape
       - name: bibtex main
         uses: dante-ev/latex-action@latest
