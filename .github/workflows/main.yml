@@ -16,11 +16,6 @@ jobs:
     - name: Compile
       run: make
 
-    - uses: actions/upload-artifact@v2
-      with:
-        name: Upload PDF
-        path: pdf/*.pdf
-
     - uses: EndBug/add-and-commit@v9
         with:
           default_author: github_actions
