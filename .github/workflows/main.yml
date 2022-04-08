@@ -28,3 +28,4 @@ jobs:
           author_email: hugo.arganda@gmail.com
           message: "Upload PDF"
           add: "pdf/*.pdf"
+        
