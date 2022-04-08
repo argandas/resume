@@ -18,5 +18,5 @@ jobs:
 
     - uses: actions/upload-artifact@v2
       with:
-        name: examples
-        path: examples/*.pdf
+        name: Upload PDF
+        path: pdf/*.pdf
