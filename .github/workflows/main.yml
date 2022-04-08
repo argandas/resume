@@ -21,11 +21,8 @@ jobs:
         name: Upload PDF
         path: pdf/*.pdf
 
-    - name: Commit PDF
-        uses: EndBug/add-and-commit@v7
+    - uses: EndBug/add-and-commit@v9
         with:
-          author_name: Hugo Arganda
-          author_email: hugo.arganda@gmail.com
-          message: "Upload PDF"
+          default_author: github_actions
           add: "pdf/*.pdf"
         
