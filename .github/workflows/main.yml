@@ -20,3 +20,11 @@ jobs:
       with:
         name: Upload PDF
         path: pdf/*.pdf
+
+    - name: Commit PDF
+        uses: EndBug/add-and-commit@v7
+        with:
+          author_name: Hugo Arganda
+          author_email: hugo.arganda@gmail.com
+          message: "Upload PDF"
+          add: "pdf/*.pdf"
