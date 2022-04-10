@@ -10,13 +10,13 @@ jobs:
     container: texlive/texlive:latest
 
     steps:
-    - name: Checkout repo
-      uses: actions/checkout@v3
+      - name: Checkout repo
+        uses: actions/checkout@v3
 
-    - name: Compile
-      run: make
+      - name: Compile
+        run: make
 
-    - name: Commit PDF
+      - name: Commit PDF
         uses: EndBug/add-and-commit@v7
         with:
           author_name: Commitobot
@@ -24,9 +24,10 @@ jobs:
           message: "Updating build result!"
           add: "pdf/test.pdf"
 
-    - uses: actions/upload-artifact@v2
-      with:
-        name: resume
-        path: pdf/*.pdf
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: resume
+          path: pdf/*.pdf
 
         
