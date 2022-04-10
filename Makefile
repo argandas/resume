@@ -3,11 +3,15 @@
 COMPILER = xelatex
 TEX_DIR = tex
 PDF_PATH = pdf
-TEX_SRCS = $(shell find $(TEX_DIR) -name '*.tex')
+TEST_SRCS = $(shell find $(TEX_DIR)/test -name '*.tex')
+RESUME_SRCS = $(shell find $(TEX_DIR)/resume -name '*.tex')
 
-files: $(foreach x, test, $x.pdf)
+files: $(foreach x, test resume, $x.pdf)
 
-test.pdf: $(TEX_DIR)/test.tex $(TEX_SRCS)
+test.pdf: $(TEX_DIR)/test/test.tex $(TEST_SRCS)
+	$(COMPILER) -output-directory=$(PDF_PATH) $<
+
+resume.pdf: $(TEX_DIR)/resume/resume.tex $(RESUME_SRCS)
 	$(COMPILER) -output-directory=$(PDF_PATH) $<
 
 clean:
