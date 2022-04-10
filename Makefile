@@ -11,7 +11,7 @@ files: $(foreach x, test resume, $x.pdf)
 test.pdf: $(TEX_DIR)/test/test.tex $(TEST_SRCS)
 	$(COMPILER) -output-directory=$(PDF_PATH) $<
 
-resume.pdf: $(TEX_DIR)/resume/resume.tex $(TEX_DIR)/resume/$(RESUME_SRCS)
+resume.pdf: $(TEX_DIR)/resume/resume.tex $(TEX_DIR)/resume/structure.tex
 	$(COMPILER) -output-directory=$(PDF_PATH) $<
 
 clean:
