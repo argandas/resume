@@ -1,11 +1,17 @@
 .PHONY: examples
 
 COMPILER = xelatex
-PDF_PATH = ../pdf
+TEX_DIR = tex
+PDF_PATH = pdf
+TEST_SRCS = $(shell find $(TEX_DIR)/test -name '*.tex')
+RESUME_SRCS = $(shell find $(TEX_DIR)/resume -name '*.tex')
 
-files: $(foreach x, resume, $x.pdf)
+files: $(foreach x, test resume, $x.pdf)
 
-resume.pdf: resume.tex
+test.pdf: $(TEX_DIR)/test/test.tex $(TEST_SRCS)
+	$(COMPILER) -output-directory=$(PDF_PATH) $<
+
+resume.pdf: $(TEX_DIR)/resume/resume.tex $(RESUME_SRCS)
 	$(COMPILER) -output-directory=$(PDF_PATH) $<
 
 clean:
