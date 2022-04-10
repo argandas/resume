@@ -3,7 +3,7 @@
 COMPILER = xelatex
 PDF_PATH = ../pdf
 
-files: $(foreach x, test resume, $x.pdf)
+files: $(foreach x, resume, $x.pdf)
 
 resume.pdf: resume.tex
 	$(COMPILER) -output-directory=$(PDF_PATH) $<
