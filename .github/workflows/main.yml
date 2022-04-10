@@ -13,11 +13,14 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
+      - name: Setup Environment
+        run: cd tex/resume
+
       - name: Compile
         run: make
 
       - name: Rename
-        run: mv pdf/resume.pdf pdf/Hugo_Arganda_Resume.pdf
+        run: mv ../pdf/resume.pdf ../pdf/Hugo_Arganda_Resume.pdf
 
       - name: Commit PDF
         uses: EndBug/add-and-commit@v7
@@ -25,7 +28,7 @@ jobs:
           author_name: Hugo Arganda
           author_email: hugo.arganda@gmail.com
           message: "Upload compiled PDF"
-          add: "pdf/Hugo_Arganda_Resume.pdf"
+          add: "../pdf/Hugo_Arganda_Resume.pdf"
 
 #      - name: Upload Artifact
 #        uses: actions/upload-artifact@v2
