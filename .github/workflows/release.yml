@@ -14,12 +14,14 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
       - name: Compile LaTex to PDF
-        run: make        
+        run: make 
+      - name: Rename file
+        run: mv .build/resume.pdf .build/Hugo_Arganda_Resume.pdf         
       - name: Create Release
         uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          files: pdf/Hugo_Arganda_Resume.pdf
+          files: .build/Hugo_Arganda_Resume.pdf
           draft: false
           prerelease: false
