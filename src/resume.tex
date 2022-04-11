@@ -1,28 +1,22 @@
 %----------------------------------------------------------------------------------------
-%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%	DOC CLASS
 %----------------------------------------------------------------------------------------
 
 \documentclass[10pt, letterpaper]{article} % Default font size
-\usepackage[utf8]{inputenc}
 
 %----------------------------------------------------------------------------------------
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
 \usepackage[letterpaper, hmargin=20mm, vmargin=20mm, top=10mm]{geometry} % Use letter paper and set margins
-
-\usepackage{fancyhdr} % Customize the header and footer
-
-\usepackage{lastpage} % Required for calculating the number of pages in the document
-
 \usepackage{hyperref} % Colors for links, text and headings
-
+\usepackage{lastpage} % Colors for links, text and headings
+\usepackage[T1]{fontenc} % Output font encoding for international characters
 \setcounter{secnumdepth}{0} % Suppress section numbering
 
-%\usepackage[proportional,scaled=1.064]{erewhon} % Use the Erewhon font
-%\usepackage[erewhon,vvarbb,bigdelims]{newtxmath} % Use the Erewhon font
-\usepackage[utf8]{inputenc} % Required for inputting international characters
-\usepackage[T1]{fontenc} % Output font encoding for international characters
+%----------------------------------------------------------------------------------------
+%	SET FONT
+%----------------------------------------------------------------------------------------
 
 \usepackage{fontspec} % Required for specification of custom fonts
 \setmainfont[Path = fonts/,
@@ -33,6 +27,10 @@ BoldItalicFont = Roboto-BoldItalic,
 SmallCapsFeatures = {Letters = SmallCaps}
 ]{Roboto-Regular}
 
+%----------------------------------------------------------------------------------------
+%	CUSTOM COLORS
+%----------------------------------------------------------------------------------------
+
 \usepackage{color} % Required for custom colors
 \definecolor{slate-blue}{rgb}{0.11,0.44,0.66}
 \definecolor{light-black}{rgb}{0.33,0.33,0.33}
@@ -41,9 +39,16 @@ SmallCapsFeatures = {Letters = SmallCaps}
 \usepackage{sectsty} % Allows customization of titles
 \sectionfont{\color{slate-blue}} % Color section titles
 
+%----------------------------------------------------------------------------------------
+%	CUSTOM HEADER AND FOOTER
+%----------------------------------------------------------------------------------------
 
-\fancyhf{} % Clear all header & footer fields
-\pagestyle{fancy} % Use the custom page style through the document
+\usepackage{fancyhdr} % Customize the header and footer
+\pagestyle{fancy}
+\fancyhf{}
+%\fancyfoot[CE,CO]{Hugo Arganda~~Resume}
+\lfoot{\today}
+\rfoot{Page \thepage~~of~~\pageref{LastPage}}
 
 \renewcommand{\headrulewidth}{0pt} % Disable the default header rule
 \renewcommand{\footrulewidth}{0pt} % Disable the default footer rule
@@ -182,24 +187,7 @@ SmallCapsFeatures = {Letters = SmallCaps}
 }
 
 %----------------------------------------------------------------------------------------
-%	FOOTER ITEM COMMAND
-%----------------------------------------------------------------------------------------
-% Define a footer for CV
-% Usage: \makecvfooter{<left>}{<center>}{<right>}
-\newcommand*{\makecvfooter}[3]{%
-  \fancyfoot{}
-  \fancyfoot[L]{\footerstyle{#1}}
-  \fancyfoot[C]{\footerstyle{#2}}
-  \fancyfoot[R]{\footerstyle{#3}}
-}
-
-%----------------------------------------------------------------------------------------
-
-\makecvfooter
-  {\today}
-  {Hugo Arganda~~~·~~~Resume}
-  {\thepage}
-
+%	DOC BEGIN
 %----------------------------------------------------------------------------------------
 
 \begin{document}
