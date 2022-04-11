@@ -19,7 +19,7 @@ RESUME_SRCS = $(shell find $(RESUME_DIR) -name '*.tex')
 .PHONY: clean resume.pdf
 
 resume.pdf:
-    @echo "Compile Latex ..."
+	@echo "Compile Latex ..."
 ifeq ($(DEBUG) , 'true')
 	@echo $(SRC_DIR)
 	@echo $(RESUME_DIR)

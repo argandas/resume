@@ -1,4 +1,4 @@
-name: Generate PDF (texlive)
+name: Compile PDF (texlive/xelatex)
 
 on:
   push: {}
