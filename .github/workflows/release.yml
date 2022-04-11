@@ -17,6 +17,7 @@ jobs:
         run: make       
   release:
     needs: build
+    runs-on: ubuntu-latest
     steps:
       - name: Create Release
         uses: softprops/action-gh-release@v1

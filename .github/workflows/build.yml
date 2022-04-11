@@ -14,6 +14,7 @@ jobs:
       - name: Compile LaTex to PDF
         run: make
   debug:
+    runs-on: ubuntu-latest
     needs: build
     if: ${{ always() }}
     steps:
