@@ -4,9 +4,8 @@
 DEBUG='true'
 
 # Folders
-ROOT_DIR=$(shell pwd)
-SRC_DIR = $(ROOT_DIR)/src
-BUILD_DIR=$(ROOT_DIR)/.build
+SRC_DIR = src
+BUILD_DIR= .build
 
 # XeLaTex options
 CC = xelatex
@@ -20,6 +19,7 @@ RESUME_SRCS = $(shell find $(RESUME_DIR) -name '*.tex')
 
 resume.pdf:
 	@echo "Compile Latex ..."
+	[-d $(BUILD_DIR)] || mkdir -p $(BUILD_DIR)
 ifeq ($(DEBUG) , 'true')
 	@echo $(SRC_DIR)
 	@echo $(RESUME_DIR)
@@ -27,6 +27,7 @@ ifeq ($(DEBUG) , 'true')
 endif
 	$(CC) $(OPTS) $(SRC_DIR)/test.tex
 	$(CC) $(OPTS) $(SRC_DIR)/resume.tex $(RESUME_SRCS)
+	mv $(BUILD_DIR)/resume.pdf "pdf/Hugo_Arganda_Resume_$(date '+%Y.%m.%d').pdf"
 
 clean:
 	rm -rf $(BUILD_DIR)/*.pdf
