@@ -47,8 +47,16 @@
 
 %\usepackage[proportional,scaled=1.064]{erewhon} % Use the Erewhon font
 %\usepackage[erewhon,vvarbb,bigdelims]{newtxmath} % Use the Erewhon font
-\usepackage[utf8]{inputenc} % Required for inputting international characters
 \usepackage[T1]{fontenc} % Output font encoding for international characters
+
+\usepackage{fontspec} % Required for specification of custom fonts
+\setmainfont[Path = fonts/,
+Extension = .ttf,
+BoldFont = Roboto-Bold,
+ItalicFont = Roboto-Italic,
+BoldItalicFont = Roboto-BoldItalic,
+SmallCapsFeatures = {Letters = SmallCaps}
+]{Roboto-Regular}
 
 \usepackage{color} % Required for custom colors
 \definecolor{slate-blue}{rgb}{0.11,0.44,0.66}
@@ -349,11 +357,13 @@
 {MySQL, MongoDB, Docker, REST, JSON, HTTP, XML, HTML, Bootstrap, CSS}
 {}
 
-\skillgroup{Project Management}
-{Project life-cycle, V-Model, Leadership, Scrum (Scrum Master, Product Owner)}
-{Cost Control, Time management, Effective communication, Risk assessment}
+\skillgroup{Project Management Tools}
 {CMMI, ASPICE, MS Project, Jira, Confluence, Rally, TeamForge}
 {}
+
+\skillgroup{Project Management Skills}
+{Project life-cycle, V-Model, Leadership, Scrum (Scrum Master, Product Owner)}
+{Cost Control, Time management, Effective communication, Risk assessment}
 
 %----------------------------------------------------------------------------------------
 %	LICENSES AND CERTIFICATIONS
