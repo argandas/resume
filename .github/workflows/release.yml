@@ -23,7 +23,7 @@ jobs:
   release:
     needs: build
     runs-on: ubuntu-latest
-    if: {{ success() }}
+    if: ${{ success() }}
     steps:
       - name: Download artifact
         uses: actions/download-artifact@v3
