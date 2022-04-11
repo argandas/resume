@@ -15,9 +15,23 @@ jobs:
         uses: actions/checkout@v3
       - name: Compile LaTex to PDF
         run: make 
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: build
+          path: .build
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    if: {{ success() }}
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: build
       - name: Rename file
-        run: mv .build/resume.pdf .build/Hugo_Arganda_Resume.pdf         
-      - name: Create Release
+        run: mv .build/resume.pdf .build/Hugo_Arganda_Resume.pdf
+      - name: Release
         uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
