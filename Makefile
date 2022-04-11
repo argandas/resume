@@ -28,6 +28,7 @@ ifeq ($(DEBUG) , 'true')
 endif
 	$(CC) $(OPTS) $(SRC_DIR)/test.tex
 	$(CC) $(OPTS) $(SRC_DIR)/resume.tex $(RESUME_SRCS)
+	$(CC) $(OPTS) $(SRC_DIR)/resume.tex $(RESUME_SRCS)
 	mv $(BUILD_DIR)/resume.pdf "pdf/Hugo_Arganda_$(shell date '+%Y.%m.%d').pdf"
 
 clean:
