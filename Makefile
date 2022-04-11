@@ -6,6 +6,8 @@ RESUME_DIR = src/resume
 PDF_PATH = pdf
 RESUME_SRCS = $(shell find $(RESUME_DIR) -name '*.tex')
 
+ECHO RESUME_DIR
+
 files: $(foreach x, test resume, $x.pdf)
 
 test.pdf: $(TEX_DIR)/test.tex 
