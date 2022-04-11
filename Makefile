@@ -1,7 +1,7 @@
 #
 # Makefile for Latex resume 
 #
-DEBUG='false'
+DEBUG='true'
 
 # Folders
 SRC_DIR = src
