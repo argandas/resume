@@ -6,7 +6,7 @@ DEBUG='true'
 # Folders
 ROOT_DIR=$(shell pwd)
 SRC_DIR = $(ROOT_DIR)/src
-BUILD_DIR=$(ROOT_DIR)/pdf
+BUILD_DIR=$(ROOT_DIR)/.build
 
 # XeLaTex options
 CC = xelatex
