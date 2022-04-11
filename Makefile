@@ -5,7 +5,8 @@ DEBUG='true'
 
 # Folders
 SRC_DIR = src
-BUILD_DIR= .build
+BUILD_DIR = .build
+PDF_DIR = pdf
 
 # XeLaTex options
 CC = xelatex
@@ -27,7 +28,8 @@ ifeq ($(DEBUG) , 'true')
 endif
 	$(CC) $(OPTS) $(SRC_DIR)/test.tex
 	$(CC) $(OPTS) $(SRC_DIR)/resume.tex $(RESUME_SRCS)
-	mv $(BUILD_DIR)/resume.pdf "pdf/Hugo_Arganda_Resume_$(shell date '+%Y.%m.%d').pdf"
+	mv $(BUILD_DIR)/resume.pdf "pdf/Hugo_Arganda_$(shell date '+%Y.%m.%d').pdf"
 
 clean:
-	rm -rf $(BUILD_DIR)/*.pdf
+	rm -rf $(BUILD_DIR)/*.pdf	
+	rm -rf $(PDF_DIR)/*.pdf
