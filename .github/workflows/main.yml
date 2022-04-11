@@ -1,4 +1,4 @@
-name: Compile PDF (texlive/xelatex)
+name: build
 
 on:
   push: {}
