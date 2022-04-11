@@ -9,7 +9,7 @@ SRC_DIR = $(ROOT_DIR)/src
 BUILD_DIR=$(ROOT_DIR)/pdf
 
 # XeLaTex options
-CC = pdflatex
+CC = xelatex
 OPTS = -output-directory=$(BUILD_DIR)
 
 # Resume folders
