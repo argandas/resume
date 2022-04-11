@@ -16,6 +16,7 @@ OPTS = -output-directory=$(BUILD_DIR)
 RESUME_DIR = $(SRC_DIR)/resume
 RESUME_SRCS = $(shell find $(RESUME_DIR) -name '*.tex')
 
+TODAY = $(shell date '+%Y.%m.%d')
 .PHONY: clean resume.pdf
 
 resume.pdf:
@@ -30,7 +31,8 @@ endif
 	$(CC) $(OPTS) $(SRC_DIR)/test.tex
 	$(CC) $(OPTS) $(SRC_DIR)/resume.tex $(RESUME_SRCS)
 	$(CC) $(OPTS) $(SRC_DIR)/resume.tex $(RESUME_SRCS)
-	mv $(BUILD_DIR)/resume.pdf "pdf/Hugo_Arganda_$(shell date '+%Y.%m.%d').pdf"
+	mv $(BUILD_DIR)/resume.pdf "pdf/Hugo_Arganda_$(TODAY).pdf"
+	cp "pdf/Hugo_Arganda_$(TODAY).pdf" "pdf/Hugo_Arganda_Resume.pdf"
 
 clean:
 	rm -rf $(BUILD_DIR)/*.pdf
