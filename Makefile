@@ -27,7 +27,7 @@ ifeq ($(DEBUG) , 'true')
 endif
 	$(CC) $(OPTS) $(SRC_DIR)/test.tex
 	$(CC) $(OPTS) $(SRC_DIR)/resume.tex $(RESUME_SRCS)
-	mv $(BUILD_DIR)/resume.pdf "pdf/Hugo_Arganda_Resume_$(date '+%Y.%m.%d').pdf"
+	mv $(BUILD_DIR)/resume.pdf "pdf/Hugo_Arganda_Resume_$(shell date '+%Y.%m.%d').pdf"
 
 clean:
 	rm -rf $(BUILD_DIR)/*.pdf

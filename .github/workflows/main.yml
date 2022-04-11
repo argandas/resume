@@ -13,10 +13,10 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Compile
+      - name: Compile LaTex to PDF
         run: make
 
-      - name: Commit PDF
+      - name: Commit compiled PDF
         uses: EndBug/add-and-commit@v7
         with:
           author_name: Hugo Arganda
@@ -24,7 +24,7 @@ jobs:
           message: "Upload compiled PDF"
           add: "pdf/"
 
-      - name: Upload Artifact
+      - name: Upload build artifacts
         uses: actions/upload-artifact@v2
         with:
           name: output
