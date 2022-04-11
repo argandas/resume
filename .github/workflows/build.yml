@@ -8,25 +8,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container: texlive/texlive:latest
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
-
       - name: Compile LaTex to PDF
         run: make
-
-      - name: Commit compiled PDF
-        uses: EndBug/add-and-commit@v9
-        with:
-          author_name: Hugo Arganda
-          author_email: hugo.arganda@gmail.com
-          message: "Upload compiled PDF"
-          add: "pdf/"
-
       - name: Upload build artifacts
-        if: always()
+        if: ${{ always() }}
         uses: actions/upload-artifact@v2
         with:
-          name: output
-          path: .build/       
+          name: build
+          path: .build/
