@@ -1,8 +1,8 @@
 .PHONY: examples
 
 COMPILER = xelatex
-TEX_DIR = tex
-RESUME_DIR = tex/resume
+TEX_DIR = src
+RESUME_DIR = src/resume
 PDF_PATH = pdf
 RESUME_SRCS = $(shell find $(RESUME_DIR) -name '*.tex')
 
