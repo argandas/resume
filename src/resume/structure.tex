@@ -3,19 +3,14 @@
 %----------------------------------------------------------------------------------------
 
 \usepackage[letterpaper, hmargin=20mm, vmargin=20mm, top=10mm]{geometry} % Use letter paper and set margins
-
-\usepackage{fancyhdr} % Customize the header and footer
-
-\usepackage{lastpage} % Required for calculating the number of pages in the document
-
 \usepackage{hyperref} % Colors for links, text and headings
-
+\usepackage{lastpage} % Colors for links, text and headings
+\usepackage[T1]{fontenc} % Output font encoding for international characters
 \setcounter{secnumdepth}{0} % Suppress section numbering
 
-%\usepackage[proportional,scaled=1.064]{erewhon} % Use the Erewhon font
-%\usepackage[erewhon,vvarbb,bigdelims]{newtxmath} % Use the Erewhon font
-\usepackage[utf8]{inputenc} % Required for inputting international characters
-\usepackage[T1]{fontenc} % Output font encoding for international characters
+%----------------------------------------------------------------------------------------
+%	SET FONT
+%----------------------------------------------------------------------------------------
 
 \usepackage{fontspec} % Required for specification of custom fonts
 \setmainfont[Path = fonts/,
@@ -26,6 +21,10 @@ BoldItalicFont = Roboto-BoldItalic,
 SmallCapsFeatures = {Letters = SmallCaps}
 ]{Roboto-Regular}
 
+%----------------------------------------------------------------------------------------
+%	CUSTOM COLORS
+%----------------------------------------------------------------------------------------
+
 \usepackage{color} % Required for custom colors
 \definecolor{slate-blue}{rgb}{0.11,0.44,0.66}
 \definecolor{light-black}{rgb}{0.33,0.33,0.33}
@@ -34,8 +33,17 @@ SmallCapsFeatures = {Letters = SmallCaps}
 \usepackage{sectsty} % Allows customization of titles
 \sectionfont{\color{slate-blue}} % Color section titles
 
-\fancypagestyle{plain}{\fancyhf{}\cfoot{\thepage\ of \pageref{LastPage}}} % Define a custom page style
-\pagestyle{plain} % Use the custom page style through the document
+%----------------------------------------------------------------------------------------
+%	CUSTOM HEADER AND FOOTER
+%----------------------------------------------------------------------------------------
+
+\usepackage{fancyhdr} % Customize the header and footer
+\pagestyle{fancy}
+\fancyhf{}
+%\fancyfoot[CE,CO]{Hugo Arganda~~Resume}
+\lfoot{\color{light-black}\today}
+\rfoot{\color{light-black}{Page \thepage~~of~~\pageref{LastPage}}}
+
 \renewcommand{\headrulewidth}{0pt} % Disable the default header rule
 \renewcommand{\footrulewidth}{0pt} % Disable the default footer rule
 
@@ -89,16 +97,16 @@ SmallCapsFeatures = {Letters = SmallCaps}
 %	JOB COMMAND
 %----------------------------------------------------------------------------------------
 
-\newcommand{\job}[5]{
+\newcommand{\job}[6]{
     \begin{tabbing}
-    
-    \hspace{0.5cm}\color{dark-black}{\textbf{#1} • {#2}}\\
-    \hspace{0.5cm}{#3 - #4} \\
-    \hspace{1cm}\begin{minipage}{\smallertextwidth}
-    \vspace{2mm}
-    \color{light-black}
-    #5
-    \end{minipage}
+        \hspace{0.5cm}\color{dark-black}{\textbf{#1} • {#2}}\\
+        \hspace{0.5cm}{#3 - #4} • #5\\
+        \hspace{1cm}
+        \begin{minipage}{\smallertextwidth}
+            \vspace{2mm}
+            \color{light-black}
+            #6
+        \end{minipage}
     \end{tabbing}
     \vspace{0em}
 }
@@ -109,15 +117,15 @@ SmallCapsFeatures = {Letters = SmallCaps}
 
 \newcommand{\skillgroup}[3]{
     \begin{tabbing}
-    \hspace{0.5cm}\color{dark-black}{#1}\\
-    \ifx\temp\empty
-    \hspace{1cm}{#2}
-    \else
-    \hspace{1cm}{#2}\\
-    \hspace{1cm}{#3}
-    \fi
+    \hspace{0.5cm}\color{dark-black}{\textbf{#1}}\\
+    \hspace{1cm}
+    \begin{minipage}{\smallertextwidth}
+            \vspace{2mm}
+            \color{light-black}
+            #2
+    \end{minipage}
     \end{tabbing}
-    \vspace{-7mm}
+    \vspace{-4mm}
 }
 
 %----------------------------------------------------------------------------------------
