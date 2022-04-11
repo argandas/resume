@@ -2,7 +2,7 @@
 %	DOC CLASS
 %----------------------------------------------------------------------------------------
 
-\documentclass[10pt, letterpaper]{resume} % Default font size
+\documentclass{resume} % Default font size
 
 %----------------------------------------------------------------------------------------
 %	DOC BEGIN
@@ -10,12 +10,12 @@
 
 \begin{document}
 
-\input{src/contact.tex}
-\input{src/summary.tex}
-\input{src/experience.tex}
-\input{src/skills.tex}
-\input{src/languages.tex}
-\input{src/education.tex}
-\input{src/certificates.tex}
+\import{./src/}{contact.tex}
+\import{./src/}{summary.tex}
+\import{./src/}{experience.tex}
+\import{./src/}{skills.tex}
+\import{./src/}{languages.tex}
+\import{./src/}{education.tex}
+\import{./src/}{certificates.tex}
 
 \end{document}

@@ -4,10 +4,13 @@
 \ProvidesClass{resume}[2022/04/11 v1.0.0 Resume Class]
 \NeedsTeXFormat{LaTeX2e}
 
+\LoadClass[10pt, letterpaper]{article}
+
 %----------------------------------------------------------------------------------------
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
+\usepackage{import}
 \usepackage[letterpaper, hmargin=20mm, vmargin=20mm, top=10mm]{geometry} % Use letter paper and set margins
 \usepackage{hyperref} % Colors for links, text and headings
 \usepackage{lastpage} % Colors for links, text and headings
@@ -46,9 +49,8 @@ SmallCapsFeatures = {Letters = SmallCaps}
 \usepackage{fancyhdr} % Customize the header and footer
 \pagestyle{fancy}
 \fancyhf{}
-%\fancyfoot[CE,CO]{Hugo Arganda~~Resume}
 \lfoot{\color{light-black}\today}
-\rfoot{\color{light-black}{Page \thepage}}
+\rfoot{\color{light-black}{Page \thepage~~of~~\pageref{LastPage}}}
 
 \renewcommand{\headrulewidth}{0pt} % Disable the default header rule
 \renewcommand{\footrulewidth}{0pt} % Disable the default footer rule
