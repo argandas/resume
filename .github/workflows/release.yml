@@ -21,5 +21,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           files: pdf/Hugo_Arganda_Resume.pdf
-          draft: true
+          draft: false
           prerelease: false
