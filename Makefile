@@ -45,4 +45,4 @@ endif
 
 clean:
 	rm -rf $(BUILD_DIR)/*.pdf
-	rm -rf $(PDF_DIR)/*.pdf
+	rm -rf $(BUILD_DIR)/*.aux
