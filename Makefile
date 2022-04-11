@@ -1,7 +1,7 @@
 #
 # Makefile for Latex resume 
 #
-DEBUG='true'
+DEBUG='false'
 
 # Folders
 SRC_DIR = src
@@ -21,6 +21,7 @@ RESUME_SRCS = $(shell find $(RESUME_DIR) -name '*.tex')
 resume.pdf:
 	@echo "Compile Latex ..."
 	[-d $(BUILD_DIR)] || mkdir -p $(BUILD_DIR)
+	[-d $(PDF_DIR)] || mkdir -p $(PDF_DIR)
 ifeq ($(DEBUG) , 'true')
 	@echo $(SRC_DIR)
 	@echo $(RESUME_DIR)
@@ -32,5 +33,5 @@ endif
 	mv $(BUILD_DIR)/resume.pdf "pdf/Hugo_Arganda_$(shell date '+%Y.%m.%d').pdf"
 
 clean:
-	rm -rf $(BUILD_DIR)/*.pdf	
+	rm -rf $(BUILD_DIR)/*.pdf
 	rm -rf $(PDF_DIR)/*.pdf
