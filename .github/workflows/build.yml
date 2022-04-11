@@ -1,0 +1,24 @@
+name: build
+
+on:
+  push: {}
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: texlive/texlive:latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      - name: Compile LaTex to PDF
+        run: make
+  debug:
+    needs: build
+    if: ${{ always() }}
+    steps:
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: debug
+          path: .build/
