@@ -1,12 +1,15 @@
 #
 # Makefile for Latex resume 
 #
-DEBUG='false'
+DEBUG='true'
+
+FILE_NAME = Hugo_Arganda_Resume
 
 # Folders
 SRC_DIR = src
 BUILD_DIR = .build
 PDF_DIR = pdf
+FILE_EXT = .pdf
 
 # XeLaTex options
 CC = xelatex
@@ -17,6 +20,10 @@ RESUME_DIR = $(SRC_DIR)/resume
 RESUME_SRCS = $(shell find $(RESUME_DIR) -name '*.tex')
 
 TODAY = $(shell date '+%Y.%m.%d')
+
+FILE = $(PDF_DIR)/$(FILE_NAME)$(FILE_EXT)
+FILE_BKP = $(PDF_DIR)/$(FILE_NAME)_$(TODAY)$(FILE_EXT)
+
 .PHONY: clean resume.pdf
 
 resume.pdf:
@@ -29,13 +36,10 @@ ifeq ($(DEBUG) , 'true')
 	@echo $(RESUME_SRCS)
 	$(CC) $(OPTS) $(SRC_DIR)/test.tex
 endif
-# Run 1st time to generate AUX files
 	$(CC) $(OPTS) $(SRC_DIR)/resume.tex $(RESUME_SRCS)
-# Run 2nd time to generate PDF file with page numbering
-	$(CC) $(OPTS) $(SRC_DIR)/resume.tex $(RESUME_SRCS)
-	mv $(BUILD_DIR)/resume.pdf "pdf/Hugo_Arganda_$(TODAY).pdf"
-	cp "pdf/Hugo_Arganda_$(TODAY).pdf" "pdf/Hugo_Arganda_Resume.pdf"
+	cp $(BUILD_DIR)/resume.pdf $(FILE_BKP)
+	cp $(FILE_BKP) $(FILE)
 
 clean:
 	rm -rf $(BUILD_DIR)/*.pdf
-	rm -rf $(PDF_DIR)/*.pdf
+	rm -rf $(BUILD_DIR)/*.aux
