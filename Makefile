@@ -27,9 +27,11 @@ ifeq ($(DEBUG) , 'true')
 	@echo $(SRC_DIR)
 	@echo $(RESUME_DIR)
 	@echo $(RESUME_SRCS)
-endif
 	$(CC) $(OPTS) $(SRC_DIR)/test.tex
+endif
+# Run 1st time to generate AUX files
 	$(CC) $(OPTS) $(SRC_DIR)/resume.tex $(RESUME_SRCS)
+# Run 2nd time to generate PDF file with page numbering
 	$(CC) $(OPTS) $(SRC_DIR)/resume.tex $(RESUME_SRCS)
 	mv $(BUILD_DIR)/resume.pdf "pdf/Hugo_Arganda_$(TODAY).pdf"
 	cp "pdf/Hugo_Arganda_$(TODAY).pdf" "pdf/Hugo_Arganda_Resume.pdf"
