@@ -36,9 +36,6 @@ ifeq ($(DEBUG) , 'true')
 	@echo $(RESUME_SRCS)
 	$(CC) $(OPTS) $(SRC_DIR)/test.tex
 endif
-# Run 1st time to generate AUX files
-	$(CC) $(OPTS) $(SRC_DIR)/resume.tex $(RESUME_SRCS)
-# Run 2nd time to generate PDF file with page numbering
 	$(CC) $(OPTS) $(SRC_DIR)/resume.tex $(RESUME_SRCS)
 	cp $(BUILD_DIR)/resume.pdf $(FILE_BKP)
 	cp $(FILE_BKP) $(FILE)
