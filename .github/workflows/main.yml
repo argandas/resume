@@ -27,8 +27,8 @@ jobs:
           message: "Upload compiled PDF"
           add: "pdf/Hugo_Arganda_Resume.pdf"
 
-#      - name: Upload Artifact
-#        uses: actions/upload-artifact@v2
-#        with:
-#          name: resume
-#          path: pdf/*.pdf       
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: output
+          path: pdf/       
