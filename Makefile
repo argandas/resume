@@ -27,7 +27,6 @@ ifeq ($(DEBUG) , 'true')
 endif
 	$(CC) $(OPTS) resume.tex $(SRC)
 	$(CC) $(OPTS) resume.tex $(SRC)
-	cp $(BUILD_DIR)/resume.pdf $(BUILD_DIR)/$(FILE_NAME).pdf
 
 clean:
 	rm -rf $(BUILD_DIR)/*.pdf

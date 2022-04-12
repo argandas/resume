@@ -29,8 +29,12 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: build
-      - name: Rename file
-        run: mv .build/resume.pdf .build/Hugo_Arganda_Resume.pdf
+      - shell: bash
+        run: |
+          ls -l
+          ls -l resume
+          ls -l .build
+          mv .build/resume.pdf .build/Hugo_Arganda_Resume.pdf
       - name: Release
         uses: softprops/action-gh-release@v1
         env:
