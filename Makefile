@@ -6,7 +6,7 @@ DEBUG='false'
 FILE_NAME = Hugo_Arganda_Resume
 
 # Folders
-SRC_DIR = src
+SRC_DIR = resume/src
 BUILD_DIR = .build
 
 # XeLaTex options
@@ -25,8 +25,8 @@ ifeq ($(DEBUG) , 'true')
 	@echo $(SRC_DIR)
 	@echo $(SRC)
 endif
-	$(CC) $(OPTS) resume.tex $(SRC)
-	$(CC) $(OPTS) resume.tex $(SRC)
+	$(CC) $(OPTS) resume/resume.tex $(SRC)
+	$(CC) $(OPTS) resume/resume.tex $(SRC)
 
 clean:
 	rm -rf $(BUILD_DIR)/*.pdf
