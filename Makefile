@@ -25,8 +25,8 @@ ifeq ($(DEBUG) , 'true')
 	@echo $(SRC_DIR)
 	@echo $(SRC)
 endif
-	$(CC) $(OPTS) resume.tex $(SRC)
-	$(CC) $(OPTS) resume.tex $(SRC)
+	$(CC) $(OPTS) resume/resume.tex resume/resume.cls $(SRC)
+	$(CC) $(OPTS) resume/resume.tex resume/resume.cls $(SRC)
 
 clean:
 	rm -rf $(BUILD_DIR)/*.pdf
